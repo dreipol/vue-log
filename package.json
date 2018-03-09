@@ -1,0 +1,55 @@
+{
+  "name": "vue-log",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "jsnext:main": "src/index.js",
+  "scripts": {
+    "prepare": "npm run build && npm test",
+    "lint": "eslint src/index.js test/test.js rollup.config.js",
+    "build": "rollup -c",
+    "doc": "npm run doc-api",
+    "doc-config": "documentation readme src/presets.js --section='Plugin config'",
+    "doc-api": "documentation readme src/index.js --section=API",
+    "test": "npm run lint && mocha test/runner"
+  },
+  "files": [
+    "dist/index.js",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreipol/vue-log.git"
+  },
+  "keywords": [
+    "es6",
+    "es2015"
+  ],
+  "author": "Rouven Bühlmann <rouven.buehlmann@dreipol.ch> (http://dreipol.ch)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dreipol/vue-log/issues"
+  },
+  "homepage": "https://github.com/dreipol/vue-log#readme",
+  "devDependencies": {
+    "@dreipol/eslint-config": "^3.0.0",
+    "babel-eslint": "^8.0.1",
+    "documentation": "^5.3.3",
+    "eslint": "^4.4.0",
+    "jsdom": "9.5.0",
+    "jsdom-global": "2.1.0",
+    "mocha": "^4.0.1",
+    "rollup": "^0.52.0",
+    "rollup-plugin-buble": "^0.18.0",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "url-search-params": "^0.10.0",
+    "vue": "^2.5.9",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.0"
+  },
+  "dependencies": {
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.isequal": "^4.5.0"
+  }
+}
