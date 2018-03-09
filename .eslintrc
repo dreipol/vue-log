@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "extends": "@dreipol/eslint-config",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "Vue": true,
+    "globals": true
+  },
+  "rules": {
+    "camelcase": ["error", { "properties": "never" }],
+  }
+}
