@@ -31,9 +31,9 @@ export const presets = {
         },
     ],
     loggerArgs({ level, vm, context }) {
+        const result = [];
         let { location } = context;
         const { label, color } = level;
-        const loglevel = label ? `${ label } ` : '';
         const styles = color ? `color: ${ color }` : '';
 
         if (!location && vm) {
@@ -41,9 +41,18 @@ export const presets = {
             location = `${ tag ? `${ tag } #${ vm._uid }` : `#${ vm._uid }` }` || 'unknown';
         }
 
-        return [
-            `${ styles ? '%c' : '' }${ loglevel }[${ location }]`,
-            styles,
-        ];
+        if (styles || label || location) {
+            result.push([
+                styles ? '%c' : '',
+                label ? `${ label } ` : '',
+                location ? `[${ location }]` : '',
+            ].join(''));
+
+            if (styles) {
+                result.push(styles);
+            }
+        }
+
+        return result;
     },
 };
