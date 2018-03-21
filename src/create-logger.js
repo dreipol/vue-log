@@ -7,6 +7,10 @@ function noop() {
 
 /**
  * Define loggers for vue instances
+ * @param {Object} target - The host object
+ * @param {Object} config - A config object for the logger instance
+ * @param {Object} vm - A vue component instance that is allowed to influence part of the logging string
+ * @return {Function} The original target object enhanced with a logger instance
  */
 export function createLogger(target, config, vm) {
     const { logger, proxy, levels, threshold, loggerArgs, context, filter } = config;
