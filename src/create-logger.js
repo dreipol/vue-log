@@ -13,23 +13,22 @@ function noop() {
  * @return {Function} The original target object enhanced with a logger instance
  */
 export function createLogger(target, config, vm) {
-    const { logger, proxy, levels, threshold, loggerArgs, context, filter } = config;
-    const logLevel = levels.findIndex(level => level.name === threshold);
+    const { logger, proxy, levels, loggerArgs, context, filter } = config;
 
     return levels.reduce((host, level) => {
         return Object.defineProperty(host, level.name, {
             get() {
-                if (!level.fn || !filter(level, vm) || levels.findIndex(l => l.name === level.name) < logLevel) {
+                if (!level.fn || !filter({ config, level, vm })) {
                     return noop;
                 }
 
                 if (proxy) {
-                    const args = loggerArgs({ level, context, vm });
+                    const args = loggerArgs({ level, config, vm });
                     return level.fn.bind(logger, ...args);
                 }
 
                 return function(...statements) {
-                    const args = loggerArgs({ level, context, vm, statements });
+                    const args = loggerArgs({ level, config, vm, statements });
                     level.fn.call(logger, ...args);
                 };
             },

@@ -16,7 +16,4 @@ Vue.config.productionTip = false;
 
 describe('vue-log', () => {
     require('./global-logger.spec');
-
-    afterEach(() => {
-    });
 });

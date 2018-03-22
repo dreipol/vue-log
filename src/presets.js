@@ -1,7 +1,6 @@
 export const presets = {
     logger: window.console,
     proxy: true,
-    threshold: 'debug',
     context: {},
     filter: () => true,
     levels: [
@@ -30,9 +29,9 @@ export const presets = {
             color: '#A16666',
         },
     ],
-    loggerArgs({ level, vm, context }) {
+    loggerArgs({ level, vm, config }) {
         const result = [];
-        let { location } = context;
+        let { location } = config.context;
         const { label, color } = level;
         const styles = color ? `color: ${ color }` : '';
 
