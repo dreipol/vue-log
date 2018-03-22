@@ -220,3 +220,12 @@ storing what happened before the error occured:
         },
     });
 ``` 
+
+## 
+[travis-image]: https://img.shields.io/travis/dreipol/vue-log.svg?style=flat-square
+[travis-url]: https://travis-ci.org/dreipol/vue-log
+[license-image]: http://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
+[license-url]: LICENSE
+[npm-version-image]: http://img.shields.io/npm/v/vue-log.svg?style=flat-square
+[npm-downloads-image]: http://img.shields.io/npm/dm/vue-log.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/vue-log
