@@ -45,6 +45,18 @@ describe('global-logger', () => {
         chai.expect(spy).to.have.been.called.with.exactly('[bar]', 'baz');
     });
 
+    it('should append multiple arguments with their original type', () => {
+        const obj = { qux: 'quux' };
+        const Log = LogFactory({
+            levels: [{ name: 'foo', fn: spy }],
+            context: { location: 'bar' },
+        });
+        Log.foo('baz', { qux: 'quux' }, ['corge', 'grault']);
+
+        chai.expect(spy).to.have.been.called.once;
+        chai.expect(spy).to.have.been.called.with.exactly('[bar]', 'baz', { qux: 'quux' }, ['corge', 'grault']);
+    });
+
     it('should add a label to the output', () => {
         const Log = LogFactory({
             levels: [{ name: 'foo', fn: spy, label: 'qux' }],
