@@ -11,6 +11,12 @@ export const presets = {
             color: 'grey',
         },
         {
+            name: 'log',
+            fn: window.console.log,
+            label: '📎',
+            color: 'grey',
+        },
+        {
             name: 'info',
             fn: window.console.info,
             label: '💎️',
