@@ -142,6 +142,37 @@ Switching between development and production code can be done like in many simil
 ### Logging to the console
 Console output should work out of the box with the default preset.
 
+### Custom log messages
+You can greatly customize your log messages by extending the log config object:
+
+```js
+    Vue.use(VueLog, {
+        logger: window.console,
+        levels: [
+            { 
+                name: 'log', 
+                fn: window.console.log,
+                isCriticalError: false
+            },
+            { 
+                name: 'error', 
+                fn: window.console.error,
+                isCriticalError: true 
+            },
+        ],
+        loggerArgs({ level, config }) {
+            const result = [];
+            const { isCriticalError } = level;
+            
+            if (isCriticalError) {
+                result.push('WARNING!!!');
+            }
+            
+            return result;
+        }
+    });
+```
+
 ### Filter log levels
 To filter below a certain threshold, you can use the `filter` property:
 
