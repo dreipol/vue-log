@@ -8,7 +8,7 @@ This npm package provides a system of log enhancements for vue applications.
 [![MIT License][license-image]][license-url]
 
 ## Purpose
-It enables you to implement multiple log levels with enhanced and coloured messages based on your environment. 
+*vue-log* enables you to implement multiple log levels with enhanced and coloured messages based on your environment. 
 For example, you can log coloured debug messages to the console, discerning between sibling vue components in a list. 
 In production you can send the same messages to your error reporting framework (for example Sentry/Raven) as 
 breadcrumbs in case of an error occuring.
