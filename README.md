@@ -24,7 +24,7 @@ breadcrumbs in case of an error occuring.
 2.  Register the plugin to your Vue instance
 
     ```js
-    import VueLog from 'vue-log';
+    import VueLog from '@dreipol/vue-log';
     Vue.use(VueLog);
     ```
     
@@ -35,7 +35,7 @@ breadcrumbs in case of an error occuring.
     const Log = Vue.log();
 
     function isPrimary(color) {
-        if (!result) {
+        if (!color) {
             Log.error(`Uh oh, no color was provided. That doesn't look right...`);
         }
     
@@ -45,7 +45,7 @@ breadcrumbs in case of an error occuring.
     // In a component: my-favourite-color
     export default {
         props: {
-            color: String                            
+            color: String
         },
         mounted() {
             this.$log.debug('Component mounted!');
