@@ -26,7 +26,7 @@
     "log",
     "debug",
     "sentry",
-    "raven",
+    "raven"
   ],
   "author": "Rouven Bühlmann <rouven.buehlmann@dreipol.ch> (http://dreipol.ch)",
   "license": "MIT",
