@@ -226,12 +226,6 @@ storing what happened before the error occured:
 [travis-url]: https://travis-ci.org/dreipol/vue-log
 [license-image]: http://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
 [license-url]: LICENSE
-<<<<<<< HEAD
 [npm-version-image]: http://img.shields.io/npm/v/@dreipol/vue-log.svg?style=flat-square
 [npm-downloads-image]: http://img.shields.io/npm/dm/@dreipol/vue-log.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/@dreipol/vue-log
-=======
-[npm-version-image]: http://img.shields.io/npm/v/dreipol/vue-log.svg?style=flat-square
-[npm-downloads-image]: http://img.shields.io/npm/dm/dreipol/vue-log.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/dreipol/vue-log
->>>>>>> 7a5d00294d1ea9d708fabefecb43898d4452d0ae
