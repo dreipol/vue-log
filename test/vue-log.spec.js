@@ -10,7 +10,7 @@ describe('global-logger', () => {
 
     beforeEach(function() {
         spy = chai.spy((...args) => {
-            console.log(args);
+            // console.log(args);
             // console.log(...args);
         });
     });

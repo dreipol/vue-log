@@ -7,17 +7,13 @@
  * @return {Array} The resulting output args
  */
 export function localizeByVm(result, { config, instance }) {
-    if (!config.context.location) {
-        let location = '';
+    let { location } = config.context;
 
-        if (instance) {
-            const tag = instance.$options._componentTag;
-            const uid = instance._uid;
+    if (!location && instance) {
+        const tag = instance.$options._componentTag;
+        const uid = instance._uid;
 
-            location = tag ? `${ tag } #${ uid }` : `#${ uid }`;
-        } else {
-            location = 'unknown';
-        }
+        location = tag ? `${ tag } #${ uid }` : `#${ uid }`;
 
         result.unshift(`[${ location }]`);
     }
