@@ -1,5 +1,5 @@
-import { createConfig } from './create-config';
-import { createLogger } from './create-logger';
+import { createConfig, createLogger } from '@dreipol/abstract-log';
+import { presets as pluginPresets } from './presets';
 
 
 /**
@@ -12,7 +12,7 @@ plugin.install = function(Vue, presets) {
     if (plugin.installed) { return; }
     plugin.installed = true;
 
-    config = createConfig(presets);
+    config = createConfig(pluginPresets, presets);
 
     // Add logger to vue components
     Object.defineProperty(Vue.prototype, '$log', {

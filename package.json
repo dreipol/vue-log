@@ -8,9 +8,6 @@
     "prepare": "npm run build && npm test",
     "lint": "eslint src/index.js test/test.js rollup.config.js",
     "build": "rollup -c",
-    "doc": "npm run doc-api",
-    "doc-config": "documentation readme src/presets.js --section='Plugin config'",
-    "doc-api": "documentation readme src/index.js --section=API",
     "test": "npm run lint && mocha test/runner"
   },
   "files": [
@@ -34,12 +31,14 @@
     "url": "https://github.com/dreipol/vue-log/issues"
   },
   "homepage": "https://github.com/dreipol/vue-log#readme",
+  "dependencies": {
+    "@dreipol/abstract-log": "0.0.4"
+  },
   "devDependencies": {
     "@dreipol/eslint-config": "^3.0.0",
     "babel-eslint": "^8.0.1",
     "chai": "^4.1.2",
     "chai-spies": "^1.0.0",
-    "documentation": "^5.3.3",
     "eslint": "^4.4.0",
     "jsdom": "9.5.0",
     "jsdom-global": "2.1.0",
@@ -51,6 +50,5 @@
     "vue": "^2.5.9",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.0"
-  },
-  "dependencies": {}
+  }
 }

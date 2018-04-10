@@ -5,12 +5,12 @@ describe('global-logger', () => {
     const LogFactory = Vue.log;
     let spy = chai.spy((...args) => {
         console.log(args);
-        window.console.log(...args);
+        console.log(...args);
     });
 
     beforeEach(function() {
         spy = chai.spy((...args) => {
-            // console.log(args);
+            console.log(args);
             // console.log(...args);
         });
     });
@@ -28,6 +28,7 @@ describe('global-logger', () => {
         const Log = LogFactory({
             levels: [{ name: 'foo', fn: spy }],
         });
+
         Log.foo('bar');
 
         chai.expect(spy).to.have.been.called.once;
@@ -65,7 +66,7 @@ describe('global-logger', () => {
         Log.foo('baz');
 
         chai.expect(spy).to.have.been.called.once;
-        chai.expect(spy).to.have.been.called.with.exactly('qux [bar]', 'baz');
+        chai.expect(spy).to.have.been.called.with.exactly('qux', '[bar]', 'baz');
     });
 
     it('should print a color coded message when consumed by `window.console`', () => {
