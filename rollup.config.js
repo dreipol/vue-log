@@ -9,9 +9,7 @@ export default {
         resolve({
             jsnext: true,
         }),
-        buble({
-            objectAssign: 'Object.assign',
-        }),
+        buble({}),
         commonjs(),
     ],
     output: [
