@@ -152,7 +152,8 @@ storing what happened before the error occured:
 
 ```js
     const { captureBreadcrumb } = window.Raven || {};
-
+    const RAVEN_LEVEL_MAPPING = { debug: 'debug', info: 'info', warn: 'warning', error: 'error' };
+    
     Vue.use(VueLog, {
         logger: window.Raven,
         proxy: false,
@@ -163,15 +164,13 @@ storing what happened before the error occured:
             { name: 'error', fn: captureBreadcrumb },
         ],
         middlewares: [
-            (result { level, config, statements }) {
+            (result, { level, config, statements }) => {
                 result.push([
                     {
+                        message: statements.toString ? statements.toString() : '',
                         category: 'vue-log',
-                        level: level.name,
-                        data: {
-                            message: statements.toString ? statements.toString() : '',
-                            ...config.context,
-                        },
+                        level: RAVEN_LEVEL_MAPPING[level.name],
+                        data: JSON.parse(JSON.stringify(config.context))
                     },
                 ]);
 
